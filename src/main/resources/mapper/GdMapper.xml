@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wjh.mapper.GdMapper">
+  <insert id="insertGd" parameterType="com.wjh.entity.Gd">
+    insert into Gd (id,
+    <if test="img1 != null and img1 != ''">img1</if>,
+    <if test="img2 != null and img2 != ''">img2</if>,
+    <if test="img3 != null and img3 != ''">img3</if>, name, price)
+    values (#{id},<if test="img1 != null and img1 != ''">#{img1}</if>,
+    <if test="img2 != null and img2 != ''">#{img2}</if>,
+    <if test="img3 != null and img3 != ''">#{img3}</if>, #{name}, #{price})
+  </insert>
+  <update id="updateGd" parameterType="com.wjh.entity.Gd">
+    update Gd
+    set
+    <if test="img1 != null and img1 != ''">
+      img1 = #{img1},
+    </if>
+    <if test="img2 != null and img2 != ''">
+      img2 = #{img2},
+    </if>
+    <if test="img3 != null and img3 != ''">
+      img3 = #{img3},
+    </if>
+    <if test="name != null and name != ''">
+      name = #{name}
+    </if>
+    where id = #{id}
+  </update>
+  <delete id="deleteGd" parameterType="string">
+    delete from Gd
+    where id = #{id}
+  </delete>
+  <select id="getGdById" resultType="com.wjh.entity.Gd" parameterType="string">
+    select * from Gd
+    where id = #{id}
+  </select>
+  <select id="getGd" resultType="com.wjh.entity.Gd">
+    select * from Gd
+  </select>
+</mapper>

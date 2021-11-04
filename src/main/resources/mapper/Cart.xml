@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wjh.mapper.CartMapper">
+  <insert id="Buy" parameterType="com.wjh.entity.Cart">
+    insert into cart (id, title, description, image, price, num)
+    values(#{id},#{title},#{description},#{image},#{price}, #{num})
+  </insert>
+  <update id="updateCart" parameterType="com.wjh.entity.Cart">
+    update cart
+    set title=#{title}, description = #{description}, image=#{image}, price=#{price}, num = #{num}
+    where id=#{id}
+  </update>
+  <delete id="delById" parameterType="string">
+    delete from cart
+    where id = #{id}
+  </delete>
+  <select id="look" resultType="com.wjh.entity.Cart">
+    select * from cart;
+  </select>
+  <select id="getCartById" resultType="com.wjh.entity.Cart" parameterType="string">
+    select * from cart
+    where id = #{id}
+  </select>
+</mapper>
