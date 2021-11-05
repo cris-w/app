@@ -1,8 +1,5 @@
 package com.wjh.common;
 
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion.Static;
-import java.util.ArrayList;
-import java.util.List;
 import lombok.Data;
 
 /**

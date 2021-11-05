@@ -36,7 +36,7 @@ public class WxController {
      * @return
      */
     @RequestMapping("/getSolider")
-    public Wx getSolider(){
+        public Wx getSolider(){
         List<Solider> solider = goodsService.getSolider();
         return Wx.success().add(solider);
     }
