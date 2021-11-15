@@ -128,7 +128,7 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     public int buy(String id) {
         Cart cartById = getCartById(id);
         if (cartById == null){
